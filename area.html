@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area we service</title>
+    <link rel="stylesheet" href="style.css"/>
+     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+
+</head>
+<body>
+<header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+      <img src="image/Logo1.png" alt="Logo">
+</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="header-buttons">
+      <a href="tel:+911234567890" class="call-btn"> Call: (+91)12345676890</a>
+      <a href="#book" class="book-btn">Book Now</a>
+    </div>
+  </header>
+
+<nav class="navbar">
+    <!-- Nav Links -->
+    <div class="nav-links">
+              <div class="search-bar">
+        <i>🔍</i>
+        <input type="text" placeholder="Search electricians...">
+      </div>
+      <a href="index.html">Home</a>
+
+      <!-- Services dropdown -->
+      <div class="dropdown">
+        <a href="service.html">Services ▾</a>
+        <div class="dropdown-content">
+          <div class="dropdown-columns">
+            
+            <!-- Column 1: Commercial -->
+            <div class="dropdown-column">
+              <h3><a href="service.html">Commercial Services</a></h3>
+              <a href="#">Commercial Lighting Installation</a>
+              <a href="#">Commercial Electrician</a>
+              <a href="#">Commercial Lighting</a>
+              <a href="#">Commercial Switchboard</a>
+              <a href="#">Electrical Testing & Tagging</a>
+              <a href="#">Electrical Maintenance</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Emergency & Outdoor Security Lighting</a>
+            </div>
+
+            <!-- Column 2: Residential -->
+            <div class="dropdown-column">
+              <h3><a href="rservice.html">Residential Services</a></h3>
+              <a href="#">Air Conditioner Installation</a>
+              <a href="#">Appliance Installation</a>
+              <a href="#">CCTV & Alarm Installation</a>
+              <a href="#">Digital Antenna & TV Installation</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Energy Assessment & Management</a>
+              <a href="#">Smart Home Installation</a>
+              <a href="#">Lighting, Fans and PowerPoints</a>
+              <a href="#">Smoke Alarm Installation</a>
+              <a href="#">Switchboard Health Check</a>
+            </div>
+
+            <!-- Column 3: Why Choose Us -->
+            <div class="dropdown-column">
+              <h3>Why Choose Us?</h3>
+              <p style="font-size:14px; line-height:1.5;">
+                Trusted since 2015, we provide high-quality workmanship, competitive 
+                pricing, and outstanding customer service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <a href="emergency.html">Emergency Electrician</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="area.html">Areas We Service</a>
+      <a href="account.html">Account</a>
+       <a href="#" id="cartLink" style="font-size: 18px;">Cart <sup>1</sup></a>
+      
+    </div>
+  </nav>
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      
+      <h2>Cart</h2>
+      <p><strong>Bulb/tubelight holder installation</strong></p>
+      
+      <div class="quantity-control">
+        <span>Add</span>
+        <button id="decreaseBtn">−</button>
+        <span id="quantity">1</span>
+        <button id="increaseBtn">+</button>
+      </div>
+
+      <p>Amount: ₹<span id="amount">109</span></p>
+      <div class="highlight-bar">
+        Add ₹<span id="more">91</span> more to save on visitation fees
+      </div>
+
+      <button class="book-now"onclick="window.location.href='checkout.html'">Book now</button>
+
+      <div class="offer-section">
+        <strong><img src="image/offerimage.png" alt="image" width="50"> Get visitation fees offer</strong>
+        <p>On orders above ₹200</p>
+        <a href="#">View more offers</a>
+      </div>
+
+      <div class="uc-promise">
+        <h3>UC promise</h3>
+        <ul>
+          <li>✔ Verified professionals</li>
+          <li>✔ Hassle free booking</li>
+          <li>✔ Transparent pricing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<script>
+  // Get elements
+const cartLink = document.getElementById("cartLink");
+const cartModal = document.getElementById("cartModal");
+const closeModalBtn = document.getElementById("closeModal");
+const quantitySpan = document.getElementById("quantity");
+const amountSpan = document.getElementById("amount");
+const moreSpan = document.getElementById("more");
+const increaseBtn = document.getElementById("increaseBtn");
+const decreaseBtn = document.getElementById("decreaseBtn");
+
+let quantity = 1;
+const pricePerItem = 109;
+
+// Open modal
+cartLink.addEventListener("click", function (event) {
+  event.preventDefault(); // prevent link default behavior
+  cartModal.style.display = "flex";
+});
+
+// Close modal
+closeModalBtn.addEventListener("click", function () {
+  cartModal.style.display = "none";
+});
+
+// Update price and amount
+function updatePrice() {
+  quantitySpan.textContent = quantity;
+  const total = quantity * pricePerItem;
+  amountSpan.textContent = total;
+  const more = 200 - total;
+  moreSpan.textContent = more > 0 ? more : 0;
+}
+
+// Increase quantity
+increaseBtn.addEventListener("click", function () {
+  quantity++;
+  updatePrice();
+});
+
+// Decrease quantity
+decreaseBtn.addEventListener("click", function () {
+  if (quantity > 1) {
+    quantity--;
+    updatePrice();
+  }
+});
+</script>
+<section class="area">
+  <h1>Areas We Services</h1>
+  <p>
+    Below are some areas we provide electrical services to. But, don't worry if your area is not listed, we likel service your area too!
+
+  <div class="districts">
+    <div>Ariyalur</div>
+    <div>Chengalpattu</div>
+    <div>Chennai</div>
+    <div>Coimbatore</div>
+    <div>Cuddalore</div>
+    <div>Dharmapuri</div>
+    <div>Dindigul</div>
+    <div>Erode</div>
+    <div>Kallakurichi</div>
+    <div>Kancheepuram</div>
+    <div>Kanyakumari</div>
+    <div>Karur</div>
+    <div>Krishnagiri</div>
+    <div>Madurai</div>
+    <div>Mayiladuthurai</div>
+    <div>Nagapattinam</div>
+    <div>Namakkal</div>
+    <div>Nilgiris</div>
+    <div>Perambalur</div>
+    <div>Pudukkottai</div>
+    <div>Ramanathapuram</div>
+    <div>Ranipet</div>
+    <div>Salem</div>
+    <div>Sivaganga</div>
+    <div>Tenkasi</div>
+    <div>Thanjavur</div>
+    <div>Theni</div>
+    <div>Thoothukudi</div>
+    <div>Tiruchirappalli</div>
+    <div>Tirunelveli</div>
+    <div>Tirupathur</div>
+    <div>Tiruppur</div>
+    <div>Tiruvallur</div>
+    <div>Tiruvannamalai</div>
+    <div>Tiruvarur</div>
+    <div>Vellore</div>
+    <div>Viluppuram</div>
+    <div>Virudhunagar</div>
+  </div>
+
+</section>
+
+  <script>
+    const districts = document.querySelectorAll('.districts div');
+
+    districts.forEach(district => {
+      district.addEventListener('click', () => {
+        // Redirect to contact page (replace with your actual URL)
+        window.location.href = "contact.html";
+      });
+    });
+  </script>
+<br><br><br>
+<div class="flex-container">
+  <p>Get in Touch with Electric Dreams<br>Electrical Today</p>
+  <button class="call-button">Call(+91)12345676890</button>
+</div>
+
+
+
+  <br><br><br>
+   <footer>
+    <div class="footer-container">
+      
+      <!-- Column 1: Logo + Paragraph -->
+      <div class="footer-logo">
+        <a href="index.html">
+        <img src="image/logo.png" alt="Logo" width="100">
+        </a>
+        <p>Electric dreams</p>
+        <p>
+        Voltaic Electrical provides expert residential,
+        commercial, and emergency electrical
+        services across Perth.
+        </p>
+          <div class="footer-social">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Google"><i class="fab fa-google"></i></a>
+          </div>
+ 
+      </div>
+
+      <!-- Column 2: Services -->
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Lighting</a></li>
+          <li><a href="#">Private Power Poles</a></li>
+          <li><a href="#">Smoke Alarms</a></li>
+          <li><a href="#">EV Chargers</a></li>
+          <li><a href="#">Air Conditioning</a></li>
+          <li><a href="#">Thermographic</a></li>
+          <li><a href="#">View All</a></li>
+        
+        </ul>
+      </div>
+
+      <!-- Column 3: Company -->
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service Areas</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Resources</a></li>
+           <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Get in Touch -->
+    <div class="footer-social">
+        <h3>Get in Touch</h3>
+       <p>
+        <img src="image/location-removebg-preview (1).png" alt="locatiton" width="30">Location, Chennai<br>
+
+      </p>
+      <p><img src="image/telephone-removebg-preview (1).png" alt="telephone" width="30">(+91)1234567890</p>
+      <p><img src="image/envelope-removebg-preview (1).png" alt="envelope" width="30">Support@electricdreams.com</p><br>
+      </div>
+
+    </div>
+    </div>
+
+
+  </footer>
+</body>
+</html>

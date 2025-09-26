@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link rel="stylesheet" href="style.css"/>
+     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+<body>
+<header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+      <img src="image/Logo1.png" alt="Logo">
+</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="header-buttons">
+      <a href="tel:+911234567890" class="call-btn"> Call: (+91)12345676890</a>
+      <a href="#book" class="book-btn">Book Now</a>
+    </div>
+  </header>
+
+<nav class="navbar">
+    <!-- Nav Links -->
+    <div class="nav-links">
+              <div class="search-bar">
+        <i>🔍</i>
+        <input type="text" placeholder="Search electricians...">
+      </div>
+      <a href="index.html">Home</a>
+
+      <!-- Services dropdown -->
+      <div class="dropdown">
+        <a href="service.html">Services ▾</a>
+        <div class="dropdown-content">
+          <div class="dropdown-columns">
+            
+            <!-- Column 1: Commercial -->
+            <div class="dropdown-column">
+              <h3><a href="service.html">Commercial Services</a></h3>
+              <a href="#">Commercial Lighting Installation</a>
+              <a href="#">Commercial Electrician</a>
+              <a href="#">Commercial Lighting</a>
+              <a href="#">Commercial Switchboard</a>
+              <a href="#">Electrical Testing & Tagging</a>
+              <a href="#">Electrical Maintenance</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Emergency & Outdoor Security Lighting</a>
+            </div>
+
+            <!-- Column 2: Residential -->
+            <div class="dropdown-column">
+              <h3><a href="rservice.html">Residential Services</a></h3>
+              <a href="#">Air Conditioner Installation</a>
+              <a href="#">Appliance Installation</a>
+              <a href="#">CCTV & Alarm Installation</a>
+              <a href="#">Digital Antenna & TV Installation</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Energy Assessment & Management</a>
+              <a href="#">Smart Home Installation</a>
+              <a href="#">Lighting, Fans and PowerPoints</a>
+              <a href="#">Smoke Alarm Installation</a>
+              <a href="#">Switchboard Health Check</a>
+            </div>
+
+            <!-- Column 3: Why Choose Us -->
+            <div class="dropdown-column">
+              <h3>Why Choose Us?</h3>
+              <p style="font-size:14px; line-height:1.5;">
+                Trusted since 2015, we provide high-quality workmanship, competitive 
+                pricing, and outstanding customer service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <a href="emergency.html">Emergency Electrician</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="area.html">Areas We Service</a>
+      <a href="account.html">Account</a>
+       <a href="#" id="cartLink" style="font-size: 18px;">Cart <sup>1</sup></a>
+      
+    </div>
+  </nav>
+<div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      
+      <h2>Cart</h2>
+      <p><strong>Bulb/tubelight holder installation</strong></p>
+      
+      <div class="quantity-control">
+        <span>Add</span>
+        <button id="decreaseBtn">−</button>
+        <span id="quantity">1</span>
+        <button id="increaseBtn">+</button>
+      </div>
+
+      <p>Amount: ₹<span id="amount">109</span></p>
+      <div class="highlight-bar">
+        Add ₹<span id="more">91</span> more to save on visitation fees
+      </div>
+
+      <button class="book-now"onclick="window.location.href='checkout.html'">Book now</button>
+
+      <div class="offer-section">
+        <strong><img src="image/offerimage.png" alt="image" width="50"> Get visitation fees offer</strong>
+        <p>On orders above ₹200</p>
+        <a href="#">View more offers</a>
+      </div>
+
+      <div class="uc-promise">
+        <h3>UC promise</h3>
+        <ul>
+          <li>✔ Verified professionals</li>
+          <li>✔ Hassle free booking</li>
+          <li>✔ Transparent pricing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<script>
+  // Get elements
+const cartLink = document.getElementById("cartLink");
+const cartModal = document.getElementById("cartModal");
+const closeModalBtn = document.getElementById("closeModal");
+const quantitySpan = document.getElementById("quantity");
+const amountSpan = document.getElementById("amount");
+const moreSpan = document.getElementById("more");
+const increaseBtn = document.getElementById("increaseBtn");
+const decreaseBtn = document.getElementById("decreaseBtn");
+
+let quantity = 1;
+const pricePerItem = 109;
+
+// Open modal
+cartLink.addEventListener("click", function (event) {
+  event.preventDefault(); // prevent link default behavior
+  cartModal.style.display = "flex";
+});
+
+// Close modal
+closeModalBtn.addEventListener("click", function () {
+  cartModal.style.display = "none";
+});
+
+// Update price and amount
+function updatePrice() {
+  quantitySpan.textContent = quantity;
+  const total = quantity * pricePerItem;
+  amountSpan.textContent = total;
+  const more = 200 - total;
+  moreSpan.textContent = more > 0 ? more : 0;
+}
+
+// Increase quantity
+increaseBtn.addEventListener("click", function () {
+  quantity++;
+  updatePrice();
+});
+
+// Decrease quantity
+decreaseBtn.addEventListener("click", function () {
+  if (quantity > 1) {
+    quantity--;
+    updatePrice();
+  }
+});
+</script>
+<br>
+<h3 style="text-align: center;font-size: 20px;">Account Log in or Sign in</h3>
+<br><br><br>
+ <!-- Login Section -->
+  <div class="login-container">
+    <div class="login-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></div>
+    <div class="login-content">
+      <p><strong>Log in to book your services</strong></p>
+      
+      <label for="phone">Enter Phone Number</label>
+      
+      <div class="input-group">
+        <input type="password" id="phone" maxlength="10" placeholder="Phone number">
+        <button class="login-btn" onclick="openModal()">Login</button>
+      </div><br>
+      <div class="hint">Enter mobile number, we will send a verification<br> code</div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal1" id="otpModal">
+    <div class="modal1-content">
+      <h3>Enter verification code that sent to your mobile number</h3>
+      <div class="otp-inputs">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+        <input type="text" maxlength="1">
+      </div>
+      <div class="resend">
+        Not received? <a href="#">Resend</a><br>
+        <span style="color: red;">Try in 60 sec</span>
+      </div>
+      <div class="modal-buttons">
+        <button class="back" onclick="closeModal()">Back</button>
+        <button onclick="window.location.href='index.html'">Submit</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="signin-container">
+    <h2>Sign In with email or mobile number</h2>
+    <div class="signin-flex">
+      <!-- Left side -->
+      <div class="signin-section">
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" placeholder="Enter phone number">
+        <button onclick="openModal()">Verify</button>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Right side -->
+      <div class="signin-section">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Email id">
+          <small id="emailError" style="color:red;display:none;"></small>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="10 digit">
+         <small id="passwordError" style="color:red;display:none;"></small>
+<a href="index.html">
+        <button id="signinBtn" onclick="window.location.href='index.html'">Sign In</button>
+        </a>
+      </div>
+    </div>
+  </div>
+<script>
+  const signinBtn = document.getElementById("signinBtn");
+
+  signinBtn.addEventListener("click", function (e) {
+    e.preventDefault(); // prevent form submission
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    const emailError = document.getElementById("emailError");
+    const passwordError = document.getElementById("passwordError");
+
+    // Reset errors
+    emailError.style.display = "none";
+    passwordError.style.display = "none";
+
+    let valid = true;
+
+    // Email validation
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    if (!emailPattern.test(email)) {
+      emailError.textContent = "Enter a valid Gmail address (example: name@gmail.com)";
+      emailError.style.display = "block";
+      valid = false;
+    }
+
+    // Password validation (8 digits only)
+    const passwordPattern = /^[0-9]{8}$/;
+    if (!passwordPattern.test(password)) {
+      passwordError.textContent = "Password must be exactly 8 digits (xxxxxxxx)";
+      passwordError.style.display = "block";
+      valid = false;
+    }
+
+    // If valid → redirect
+    if (valid) {
+      window.location.href = "index.html";
+    }
+  });
+</script>
+
+
+
+  <br><br><br>
+   <footer>
+    <div class="footer-container">
+      
+      <!-- Column 1: Logo + Paragraph -->
+      <div class="footer-logo">
+        <a href="index.html">
+        <img src="image/logo.png" alt="Logo" width="100">
+        </a>
+        <p>Electric dreams</p>
+        <p>
+        Voltaic Electrical provides expert residential,
+        commercial, and emergency electrical
+        services across Perth.
+        </p>
+          <div class="footer-social">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Google"><i class="fab fa-google"></i></a>
+          </div>
+      </div>
+
+      <!-- Column 2: Services -->
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Lighting</a></li>
+          <li><a href="#">Private Power Poles</a></li>
+          <li><a href="#">Smoke Alarms</a></li>
+          <li><a href="#">EV Chargers</a></li>
+          <li><a href="#">Air Conditioning</a></li>
+          <li><a href="#">Thermographic</a></li>
+          <li><a href="#">View All</a></li>
+        
+        </ul>
+      </div>
+
+      <!-- Column 3: Company -->
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service Areas</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Resources</a></li>
+           <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Get in Touch -->
+      <div class="footer-social">
+        <h3>Get in Touch</h3>
+       <p>
+        <img src="image/location-removebg-preview (1).png" alt="locatiton" width="30">Location, Chennai<br>
+
+      </p>
+      <p><img src="image/telephone-removebg-preview (1).png" alt="telephone" width="30">(+91)1234567890</p>
+      <p><img src="image/envelope-removebg-preview (1).png" alt="envelope" width="30">Support@electricdreams.com</p><br>
+      </div>
+
+    </div>
+
+
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

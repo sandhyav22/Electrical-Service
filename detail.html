@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail</title>
+    <link rel="stylesheet" href="style.css"/>
+     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<style>
+      h2 {
+      margin: 20px;
+      font-size: 28px;
+    }
+
+    /* Service Card */
+    .service-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px;
+      background: #fff;
+      flex-wrap: wrap;width: 1000px;
+      margin-left: 10%;
+
+    }
+
+    .service-left {
+      display: flex;
+      gap: 15px;
+      align-items: start;
+      flex: 1;
+    }
+
+    .service-left img {
+      width: 190px;
+      height: auto;
+      margin-right: 600px;
+      margin-left: 0;
+    }
+
+    .service-info h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .service-info p {
+      margin: 4px 0;
+    }
+
+    .service-right {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      min-width: 220px;
+      align-items: flex-end;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      color: #fff;
+      background: #f65616;
+      transition: 0.3s;
+      margin-left: 900px;
+      margin-top: -150px;
+      width: 30%;
+    }
+
+    .btn:hover {
+      background: #d9440e;
+    }
+
+    .Call-btn {
+      background: #f65616;
+      margin-left: 600px;
+      margin-top: -5px;
+      
+    
+    }
+.combined-section{
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+   .process-box {
+    flex:1;
+  background: #007bcd; /* Blue background */
+  color: #fff;
+  padding: 20px;
+  
+}
+
+.process-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.process-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.process-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Number Circle */
+.circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Vertical Line */
+.process-list li::before {
+  content: "";
+  position: absolute;
+  left: 13px; /* aligns with circle center */
+  top: 28px;
+  bottom: -20px;
+  width: 2px;
+  background: #ccc;
+  z-index: 1;
+}
+
+.process-list li:last-child::before {
+  display: none; /* remove line after last item */
+}
+
+/* Step Text */
+.step-content strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+.step-content p {
+  margin: 0;
+  font-size: 14px;
+}
+    .technician-section {
+      display: flex;
+      background-color: #0078D4; /* Blue background */
+      color: white;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+      align-items: center;
+      justify-content: space-between;
+       flex: 1;
+    }
+
+    .info-box {
+      flex: 1;
+    }
+
+    .info-box h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .info-box p {
+      font-size: 16px;
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .info-box p::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    .info-box p:nth-child(2)::before {
+      background-image: url('https://img.icons8.com/ios-filled/50/ffffff/checked-shield.png'); /* Background verified icon */
+    }
+
+    .info-box p:nth-child(3)::before {
+      background-image: url('https://img.icons8.com/ios-filled/50/ffffff/wrench.png'); /* Trained across brands icon */
+    }
+
+    .info-box p:nth-child(4)::before {
+      background-image: url('https://img.icons8.com/ios-filled/50/ffffff/certificate.png'); /* Certified under skill india icon */
+    }
+
+    .info-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .info-image img {
+      width: 80%;
+      max-width: 400px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .technician-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .info-box, .info-image {
+        margin-bottom: 20px;
+      }
+    }
+</style>
+
+</head>
+<body>
+<header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+      <img src="image/Logo1.png" alt="Logo">
+</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="header-buttons">
+      <a href="tel:+911234567890" class="call-btn"> Call: (+91)12345676890</a>
+      <a href="#book" class="book-btn">Book Now</a>
+    </div>
+  </header>
+
+<nav class="navbar">
+    <!-- Nav Links -->
+    <div class="nav-links">
+              <div class="search-bar">
+        <i>🔍</i>
+        <input type="text" placeholder="Search electricians...">
+      </div>
+      <a href="index.html">Home</a>
+
+      <!-- Services dropdown -->
+      <div class="dropdown">
+        <a href="service.html">Services ▾</a>
+        <div class="dropdown-content">
+          <div class="dropdown-columns">
+            
+            <!-- Column 1: Commercial -->
+            <div class="dropdown-column">
+              <h3><a href="service.html">Commercial Services</a></h3>
+              <a href="#">Commercial Lighting Installation</a>
+              <a href="#">Commercial Electrician</a>
+              <a href="#">Commercial Lighting</a>
+              <a href="#">Commercial Switchboard</a>
+              <a href="#">Electrical Testing & Tagging</a>
+              <a href="#">Electrical Maintenance</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Emergency & Outdoor Security Lighting</a>
+            </div>
+
+            <!-- Column 2: Residential -->
+            <div class="dropdown-column">
+              <h3><a href="rservice.html">Residential Services</a></h3>
+              <a href="#">Air Conditioner Installation</a>
+              <a href="#">Appliance Installation</a>
+              <a href="#">CCTV & Alarm Installation</a>
+              <a href="#">Digital Antenna & TV Installation</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Energy Assessment & Management</a>
+              <a href="#">Smart Home Installation</a>
+              <a href="#">Lighting, Fans and PowerPoints</a>
+              <a href="#">Smoke Alarm Installation</a>
+              <a href="#">Switchboard Health Check</a>
+            </div>
+
+            <!-- Column 3: Why Choose Us -->
+            <div class="dropdown-column">
+              <h3>Why Choose Us?</h3>
+              <p style="font-size:14px; line-height:1.5;">
+                Trusted since 2015, we provide high-quality workmanship, competitive 
+                pricing, and outstanding customer service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <a href="emergency.html">Emergency Electrician</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="area.html">Areas We Service</a>
+      <a href="account.html">Account</a>
+       <a href="#" id="cartLink" style="font-size: 18px;">Cart <sup>1</sup></a>
+      
+    </div>
+  </nav>
+    <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      
+      <h2>Cart</h2>
+      <p><strong>Bulb/tubelight holder installation</strong></p>
+      
+      <div class="quantity-control">
+        <span>Add</span>
+        <button id="decreaseBtn">−</button>
+        <span id="quantity">1</span>
+        <button id="increaseBtn">+</button>
+      </div>
+
+      <p>Amount: ₹<span id="amount">109</span></p>
+      <div class="highlight-bar">
+        Add ₹<span id="more">91</span> more to save on visitation fees
+      </div>
+
+      <button class="book-now"onclick="window.location.href='checkout.html'">Book now</button>
+
+      <div class="offer-section">
+        <strong><img src="image/offerimage.png" alt="image" width="50"> Get visitation fees offer</strong>
+        <p>On orders above ₹200</p>
+        <a href="#">View more offers</a>
+      </div>
+
+      <div class="uc-promise">
+        <h3>UC promise</h3>
+        <ul>
+          <li>✔ Verified professionals</li>
+          <li>✔ Hassle free booking</li>
+          <li>✔ Transparent pricing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<script>
+  // Get elements
+const cartLink = document.getElementById("cartLink");
+const cartModal = document.getElementById("cartModal");
+const closeModalBtn = document.getElementById("closeModal");
+const quantitySpan = document.getElementById("quantity");
+const amountSpan = document.getElementById("amount");
+const moreSpan = document.getElementById("more");
+const increaseBtn = document.getElementById("increaseBtn");
+const decreaseBtn = document.getElementById("decreaseBtn");
+
+let quantity = 1;
+const pricePerItem = 109;
+
+// Open modal
+cartLink.addEventListener("click", function (event) {
+  event.preventDefault(); // prevent link default behavior
+  cartModal.style.display = "flex";
+});
+
+// Close modal
+closeModalBtn.addEventListener("click", function () {
+  cartModal.style.display = "none";
+});
+
+// Update price and amount
+function updatePrice() {
+  quantitySpan.textContent = quantity;
+  const total = quantity * pricePerItem;
+  amountSpan.textContent = total;
+  const more = 200 - total;
+  moreSpan.textContent = more > 0 ? more : 0;
+}
+
+// Increase quantity
+increaseBtn.addEventListener("click", function () {
+  quantity++;
+  updatePrice();
+});
+
+// Decrease quantity
+decreaseBtn.addEventListener("click", function () {
+  if (quantity > 1) {
+    quantity--;
+    updatePrice();
+  }
+});
+</script>
+
+  <!-- Header -->
+  <h2>Lighting Installation</h2>
+
+  <!-- Service Card -->
+  <div class="service-card">
+    <div class="service-left">
+      <img src="image/image (13).png" alt="Bulb Holder">
+      <div class="service-info">
+        <h3 style="text-align: left;margin-left: -600px;">Bulb/tubelight holder installation</h3>
+        <p style="text-align: left;margin-left: -600px;"> 4.87 (30K reviews)</p>
+        <p style="text-align: left;margin-left: -600px;">₹109</p>
+        <p style="text-align: left;margin-left: -600px;">20 mins</p>
+        <p style="text-align: left;margin-left: -600px;">₹20 off 2nd item onwards</p>
+      </div>
+    </div>
+    <div class="service-right">
+      <button class="btn" id="addToCartBtn">Add to cart</button>
+      <button class="btn Call-btn">Call (+91)1234567890</button>
+    </div>
+  </div>
+  <script>
+  // Get elements
+  const CartLink = document.getElementById("cartLink");
+  const addToCartBtn = document.getElementById("addToCartBtn"); // new button
+  const CartModal = document.getElementById("cartModal");
+  const CloseModalBtn = document.getElementById("closeModal");
+  const QuantitySpan = document.getElementById("quantity");
+  const AmountSpan = document.getElementById("amount");
+  const MoreSpan = document.getElementById("more");
+  const IncreaseBtn = document.getElementById("increaseBtn");
+  const DecreaseBtn = document.getElementById("decreaseBtn");
+
+  let Quantity = 1;
+  const PricePerItem = 109;
+
+  // Function to open cart modal
+  function openCartModal(event) {
+    event.preventDefault();
+    cartModal.style.display = "flex";
+  }
+
+  // Attach to both the cart link and Add to Cart button
+  cartLink.addEventListener("click", openCartModal);
+  addToCartBtn.addEventListener("click", openCartModal); // new handler
+
+  // Close modal
+  closeModalBtn.addEventListener("click", function () {
+    cartModal.style.display = "none";
+  });
+
+  // Update price and amount
+  function updatePrice() {
+    quantitySpan.textContent = quantity;
+    const total = quantity * pricePerItem;
+    amountSpan.textContent = total;
+    const more = 200 - total;
+    moreSpan.textContent = more > 0 ? more : 0;
+  }
+
+  // Increase quantity
+  increaseBtn.addEventListener("click", function () {
+    quantity++;
+    updatePrice();
+  });
+
+  // Decrease quantity
+  decreaseBtn.addEventListener("click", function () {
+    if (quantity > 1) {
+      quantity--;
+      updatePrice();
+    }
+  });
+
+  // Initialize price on page load
+  updatePrice();
+</script>
+
+<hr>
+  <!-- Info Section -->
+   <div class="combined-section">
+<div class="info-section">
+  <!-- Our Process -->
+  <div class="info-box process-box">
+    <h3>Our Process</h3>
+    <ul class="process-list">
+      <li>
+        <div class="circle">1</div>
+        <div class="step-content">
+          <strong>Inspection</strong>
+          <p>We will check the space where you want to install the holder</p>
+        </div>
+      </li>
+      <li>
+        <div class="circle">2</div>
+        <div class="step-content">
+          <strong>Installation</strong>
+          <p>We will install the holder with care</p>
+        </div>
+      </li>
+      <li>
+        <div class="circle">3</div>
+        <div class="step-content">
+          <strong>Cleanup</strong>
+          <p>We will clean the area once work is done</p>
+        </div>
+      </li>
+      <li>
+        <div class="circle">4</div>
+        <div class="step-content">
+          <strong>Warranty activation</strong>
+          <p>The service is covered by a 30-day warranty for any issues after installation</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+   <div class="technician-section">
+    <!-- Info Text -->
+    <div class="info-box">
+      <h3>Top technicians</h3>
+      <p>Background verified</p>
+      <p>Trained across all major brands</p>
+      <p>Certified under skill india programme</p>
+    </div>
+
+    <!-- Image Section -->
+    <div class="info-image">
+      <img src="image/IMG_20250618_191828_640.jpg" alt="Technician">
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+<section class="faq-section">
+  <div class="faq-header">
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you need to know about our services.</p>
+  </div>
+
+  <div class="faq-container">
+    <!-- FAQ 1 -->
+    <div class="faq-item">
+      <h3>Did youcharge call-out fee?</h3>
+      <p>No! We offer a $0 callout fee During Business Hours, so you only pay for the work we do -- no<br>
+      hidden costs or surprises.</p>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="faq-item">
+      <h3>Do you offer emergency electrical services?</h3>
+      <p>Yes! We provide 24/7 emergency electrical repairs, ensuring you get fast and reliable service<br>
+      when you need it most.</p>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="faq-item">
+      <h3>Do you work with business and commercial properties?</h3>
+      <p>Yes! We provide comprehensive commercial electrical services, including office fit-outs, lighting<br>
+      upgrades, and compliance testing.</p>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="faq-item">
+      <h3>Are you licensed and insured?</h3>
+      <p>Yes! Voltaic Electrical is fully licensed and insured, ensuring all work meets Australian safety<br>
+      standards.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="reviews">
+  <h2>What Our Happy Customers Are Saying</h2>
+  <p>Discover why our clients trust us to keep their homes and businesses spotless.</p>
+
+  <div class="review-cards">
+    <!-- Card 1 -->
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>Had my private power pole replaced,<br>they did an exceptional job. <br> Competitive pricing, was well blow the <br>other quotes I got for the job, Great <br>service!</p>
+      <div class="reviewer">
+        <img src="image/image (12).png" alt="Reviewer 1">
+        <span>Stephen Watts<br>Private Power Pole Installation</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐</div>
+      <p>Connor was very diligent in<br>
+      troubleshooting our outdoor low<br>
+    voltage lighting. No problem now, all<br>
+  resolved by Connor, he's a good<br>
+troubleshooter.</p>
+      <div class="reviewer">
+        <img src="image/image (11).png" alt="Reviewer 2">
+        <span>Dean McKenzie<br>Outdoor Lighting</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>Connor and the team done an<br>
+      exceptional job at our property on a<br>
+    number of electrical tasks including<br>
+  the installation of downlights and <br>
+ceiling fans.</p>
+      <div class="reviewer">
+        <img src="image/image (9).png" alt="Reviewer 3">
+        <span>Daniel Pollifrone<br>Lighting & Ceiling Fans</span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐</div>
+      <p>Had my power short out, called after<br>hours, they came out within the hour<br>
+      and had my power back up in no time!<br>
+    Reasonable pricing and knowledgeable<br>
+  tradesman. Great job mate.</p>
+      <div class="reviewer">
+        <img src="image/image (11).png" alt="Reviewer 4">
+        <span>Dean Orchard<br>Emergency Call-Out</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <br><br><br>
+   <footer>
+    <div class="footer-container">
+      
+      <!-- Column 1: Logo + Paragraph -->
+      <div class="footer-logo">
+        <a href="index.html">
+        <img src="image/logo.png" alt="Logo" width="100">
+        </a>
+        <p>Electric dreams</p>
+        <p>
+        Voltaic Electrical provides expert residential,
+        commercial, and emergency electrical
+        services across Perth.
+        </p>
+          <div class="footer-social">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Google"><i class="fab fa-google"></i></a>
+          </div>
+ 
+      </div>
+
+      <!-- Column 2: Services -->
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Lighting</a></li>
+          <li><a href="#">Private Power Poles</a></li>
+          <li><a href="#">Smoke Alarms</a></li>
+          <li><a href="#">EV Chargers</a></li>
+          <li><a href="#">Air Conditioning</a></li>
+          <li><a href="#">Thermographic</a></li>
+          <li><a href="#">View All</a></li>
+        
+        </ul>
+      </div>
+
+      <!-- Column 3: Company -->
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service Areas</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Resources</a></li>
+           <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Get in Touch -->
+  <div class="footer-social">
+        <h3>Get in Touch</h3>
+       <p>
+        <img src="image/location-removebg-preview (1).png" alt="locatiton" width="30">Location, Chennai<br>
+
+      </p>
+      <p><img src="image/telephone-removebg-preview (1).png" alt="telephone" width="30">(+91)1234567890</p>
+      <p><img src="image/envelope-removebg-preview (1).png" alt="envelope" width="30">Support@electricdreams.com</p><br>
+      </div>
+
+    </div>
+
+    </div>
+
+
+  </footer>
+ 
+  <script src="script.js"></script>
+</body>
+</html>

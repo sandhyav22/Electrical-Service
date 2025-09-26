@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>checkout</title>
+    <link rel="stylesheet" href="style.css"/>
+     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checkout-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Left Summary */
+.summary-card {
+  background-color: #f25c05;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 320px;
+  height: 450px;
+  flex-shrink: 0;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.product-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+}
+
+.payment-summary {
+  margin-top: 10px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.delete-btn,
+.proceed-btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: white;
+  color: #f25c05;
+}
+
+.proceed-btn {
+  background-color: white;
+  color: #f25c05;
+}
+
+/* Right Form */
+.form-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+h2, h3 {
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.two-columns {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+    display: block;
+  }
+
+  .invalid {
+    border: 2px solid red;
+    background: #ffecec;
+  }
+
+ 
+
+.payment-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: black;
+}
+.payment-btn:hover{
+    background-color: #fcb992;
+}
+.payment-btn .icon {
+  height: 20px;
+}
+
+.pay-now-btn {
+  width: 50%;
+  margin-top: 20px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #f25c05;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 150px;
+}
+
+.pay-now-btn:hover {
+  background-color: #d94e04;
+}
+.Modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 20%;
+    width: 100%;
+    height: 50%;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    width: 300px;
+    
+  }
+
+  /* Tick animation */
+  .tick {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    border: 4px solid #d94e04;
+    position: relative;
+    animation: glitter 1s infinite;
+  }
+
+  .tick::after {
+    content: '';
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    width: 25%;
+    height: 10%;
+    border-left: 4px solid #d94e04;
+    border-bottom: 4px solid #d94e04;
+    transform: rotate(-45deg);
+    transform-origin: left bottom;
+  }
+
+  @keyframes glitter {
+    0% { box-shadow: 0 0 5px #d94e04; }
+    50% { box-shadow: 0 0 20px #d94e04; }
+    100% { box-shadow: 0 0 5px #d94e04; }
+  }
+
+  .Modal h2 {
+    color: #111;
+    margin-bottom: 10px;
+  }
+
+  .Modal p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #d94e04;
+  }
+
+  .back-btn {
+    padding: 10px 20px;
+    background-color: #d94e04;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .service-date {
+    margin-top: 20px;
+    position: relative;
+    margin-top: 600px;
+    margin-left: -200px;
+  }
+
+  #serviceDate {
+    padding: 8px;
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .calendar-btn {
+    padding: 8px 12px;
+    margin-left: 5px;
+    border: none;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .calendar-popup {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 10;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  }
+
+  .calendar-popup table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .calendar-popup th, .calendar-popup td {
+    width: 14.28%;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .calendar-popup th {
+    background-color: #f0f0f0;
+  }
+
+  .calendar-popup td:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .selected-date {
+    background-color: #28a745 !important;
+    color: white;
+  }
+
+    </style>
+
+
+</head>
+<body>
+<header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+      <img src="image/Logo1.png" alt="Logo">
+</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="header-buttons">
+      <a href="tel:+911234567890" class="call-btn"> Call: (+91)12345676890</a>
+      <a href="#book" class="book-btn">Book Now</a>
+    </div>
+  </header>
+
+<nav class="navbar">
+    <!-- Nav Links -->
+    <div class="nav-links">
+              <div class="search-bar">
+        <i>🔍</i>
+        <input type="text" placeholder="Search electricians...">
+      </div>
+      <a href="index.html">Home</a>
+
+      <!-- Services dropdown -->
+      <div class="dropdown">
+        <a href="service.html">Services ▾</a>
+        <div class="dropdown-content">
+          <div class="dropdown-columns">
+            
+            <!-- Column 1: Commercial -->
+            <div class="dropdown-column">
+              <h3><a href="service.html">Commercial Services</a></h3>
+              <a href="#">Commercial Lighting Installation</a>
+              <a href="#">Commercial Electrician</a>
+              <a href="#">Commercial Lighting</a>
+              <a href="#">Commercial Switchboard</a>
+              <a href="#">Electrical Testing & Tagging</a>
+              <a href="#">Electrical Maintenance</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Emergency & Outdoor Security Lighting</a>
+            </div>
+
+            <!-- Column 2: Residential -->
+            <div class="dropdown-column">
+              <h3><a href="rservice.html">Residential Services</a></h3>
+              <a href="#">Air Conditioner Installation</a>
+              <a href="#">Appliance Installation</a>
+              <a href="#">CCTV & Alarm Installation</a>
+              <a href="#">Digital Antenna & TV Installation</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Energy Assessment & Management</a>
+              <a href="#">Smart Home Installation</a>
+              <a href="#">Lighting, Fans and PowerPoints</a>
+              <a href="#">Smoke Alarm Installation</a>
+              <a href="#">Switchboard Health Check</a>
+            </div>
+
+            <!-- Column 3: Why Choose Us -->
+            <div class="dropdown-column">
+              <h3>Why Choose Us?</h3>
+              <p style="font-size:14px; line-height:1.5;">
+                Trusted since 2015, we provide high-quality workmanship, competitive 
+                pricing, and outstanding customer service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <a href="emergency.html">Emergency Electrician</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="area.html">Areas We Service</a>
+      <a href="account.html">Account</a>
+       <a href="#" id="cartLink" style="font-size: 18px;">Cart <sup>1</sup></a>
+      
+    </div>
+  </nav>
+    <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      
+      <h2>Cart</h2>
+      <p><strong>Bulb/tubelight holder installation</strong></p>
+      
+      <div class="quantity-control">
+        <span>Add</span>
+        <button id="decreaseBtn">−</button>
+        <span id="quantity">1</span>
+        <button id="increaseBtn">+</button>
+      </div>
+
+      <p>Amount: ₹<span id="amount">109</span></p>
+      <div class="highlight-bar">
+        Add ₹<span id="more">91</span> more to save on visitation fees
+      </div>
+
+      <button class="book-now"onclick="window.location.href='checkout.html'">Book now</button>
+
+      <div class="offer-section">
+        <strong><img src="image/offerimage.png" alt="image" width="50"> Get visitation fees offer</strong>
+        <p>On orders above ₹200</p>
+        <a href="#">View more offers</a>
+      </div>
+
+      <div class="uc-promise">
+        <h3>UC promise</h3>
+        <ul>
+          <li>✔ Verified professionals</li>
+          <li>✔ Hassle free booking</li>
+          <li>✔ Transparent pricing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<script>
+  // Get elements
+const cartLink = document.getElementById("cartLink");
+const cartModal = document.getElementById("cartModal");
+const closeModalBtn = document.getElementById("closeModal");
+const quantitySpan = document.getElementById("quantity");
+const amountSpan = document.getElementById("amount");
+const moreSpan = document.getElementById("more");
+const increaseBtn = document.getElementById("increaseBtn");
+const decreaseBtn = document.getElementById("decreaseBtn");
+
+let quantity = 1;
+const pricePerItem = 109;
+
+// Open modal
+cartLink.addEventListener("click", function (event) {
+  event.preventDefault(); // prevent link default behavior
+  cartModal.style.display = "flex";
+});
+
+// Close modal
+closeModalBtn.addEventListener("click", function () {
+  cartModal.style.display = "none";
+});
+
+// Update price and amount
+function updatePrice() {
+  quantitySpan.textContent = quantity;
+  const total = quantity * pricePerItem;
+  amountSpan.textContent = total;
+  const more = 200 - total;
+  moreSpan.textContent = more > 0 ? more : 0;
+}
+
+// Increase quantity
+increaseBtn.addEventListener("click", function () {
+  quantity++;
+  updatePrice();
+});
+
+// Decrease quantity
+decreaseBtn.addEventListener("click", function () {
+  if (quantity > 1) {
+    quantity--;
+    updatePrice();
+  }
+});
+</script>
+
+
+
+<div class="checkout-container">
+
+    <!-- Left: Product Summary -->
+    <div class="summary-card">
+      <div class="product-info">
+        <img src="image/image (13).png" alt="product" class="product-img" />
+        <div>
+          <h3>Bulb/tubelight holder installation</h3>
+          <p>Light quantity: 1</p>
+          <p>Amount: ₹109</p>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="payment-summary">
+        <h4>Payment summary</h4>
+        <div class="summary-line"><span>Item total</span><span>:₹109</span></div>
+        <div class="summary-line"><span>Visitation fees</span><span>:₹60</span></div>
+        <div class="summary-line"><span>Taxes and fees</span><span>:₹19</span></div>
+        <hr />
+        <div class="summary-line bold"><span>Total Amount</span><span>:₹188</span></div>
+        <div class="summary-line bold"><span>Amount to pay</span><span>:₹188</span></div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="delete-btn">Delete</button>
+        <button class="proceed-btn">Proceed</button>
+      </div>
+     
+  </div>
+   <div class="service-date">
+      <label for="serviceDate">Select Service Date:</label>
+      <input type="text" id="serviceDate" placeholder="Choose a date" readonly>
+      <button class="calendar-btn">📅 DD/MM/YY</button>
+      <div id="calendar" class="calendar-popup"></div>
+    </div>
+    <script>
+  const calendarBtn = document.querySelector('.calendar-btn');
+  const calendarPopup = document.getElementById('calendar');
+  const serviceDateInput = document.getElementById('serviceDate');
+
+  calendarBtn.addEventListener('click', () => {
+    calendarPopup.style.display = calendarPopup.style.display === 'block' ? 'none' : 'block';
+    if(calendarPopup.style.display === 'block') generateCalendar();
+  });
+
+  function generateCalendar() {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    let calendarHTML = '<table>';
+    calendarHTML += '<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>';
+    
+    let day = 1;
+    for (let i = 0; i < 6; i++) {
+      calendarHTML += '<tr>';
+      for (let j = 0; j < 7; j++) {
+        if(i === 0 && j < firstDay) {
+          calendarHTML += '<td></td>';
+        } else if(day > daysInMonth) {
+          calendarHTML += '<td></td>';
+        } else {
+          calendarHTML += `<td class="date-cell" data-date="${year}-${month+1}-${day}">${day}</td>`;
+          day++;
+        }
+      }
+      calendarHTML += '</tr>';
+    }
+    calendarHTML += '</table>';
+    calendarPopup.innerHTML = calendarHTML;
+
+    // Add click event for each date
+    document.querySelectorAll('.date-cell').forEach(cell => {
+      cell.addEventListener('click', () => {
+        document.querySelectorAll('.date-cell').forEach(c => c.classList.remove('selected-date'));
+        cell.classList.add('selected-date');
+        serviceDateInput.value = cell.dataset.date;
+        calendarPopup.style.display = 'none';
+      });
+    });
+  }
+
+  // Close calendar if clicked outside
+  window.addEventListener('click', (e) => {
+    if (!calendarPopup.contains(e.target) && !calendarBtn.contains(e.target) && !serviceDateInput.contains(e.target)) {
+      calendarPopup.style.display = 'none';
+    }
+  });
+</script>
+
+    <!-- Right: Form Section -->
+    <div class="form-card">
+      <h2>Checkout</h2>
+
+<form id="bookingForm">
+  <div class="form-group two-columns">
+    <div>
+      <label>First Name</label>
+      <input type="text" id="firstName" placeholder="First Name" required>
+      <small class="error" id="firstNameError"></small>
+    </div>
+    <div>
+      <label>Last Name</label>
+      <input type="text" id="lastName" placeholder="Last Name" required>
+      <small class="error" id="lastNameError"></small>
+    </div>
+  </div>
+
+  <div class="form-group two-columns">
+    <div>
+      <label>Email address</label>
+      <input type="email" id="email" placeholder="Email id" required>
+      <small class="error" id="emailError"></small>
+    </div>
+    <div>
+      <label>Phone Number</label>
+      <input type="tel" id="phone" placeholder="Phone number" required>
+      <small class="error" id="phoneError"></small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Address</label>
+    <input type="text" id="address" placeholder="Address" required>
+    <small class="error" id="addressError"></small>
+  </div>
+
+  <h3>Payment Details</h3>
+
+  <button type="button" class="payment-btn">Pay with <img src="image/image (20).png" alt="upi" class="icon"></button>
+  <button type="button" class="payment-btn">Pay with <img src="image/image (21).png" alt="netbanking" class="icon"></button>
+  <button type="button" class="payment-btn">Pay with Card <img src="image/image (22).png" alt="card" class="icon"></button>
+  
+  <br><br>
+  <button type="submit" class="pay-now-btn">Pay Now</button>
+</form>
+
+<script>
+  document.getElementById("bookingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let isValid = true;
+
+    // Input values
+    let firstName = document.getElementById("firstName");
+    let lastName = document.getElementById("lastName");
+    let email = document.getElementById("email");
+    let phone = document.getElementById("phone");
+    let address = document.getElementById("address");
+
+    // Error message elements
+    let firstNameError = document.getElementById("firstNameError");
+    let lastNameError = document.getElementById("lastNameError");
+    let emailError = document.getElementById("emailError");
+    let phoneError = document.getElementById("phoneError");
+    let addressError = document.getElementById("addressError");
+
+    // Reset errors
+    [firstName, lastName, email, phone, address].forEach(input => input.classList.remove("invalid"));
+    [firstNameError, lastNameError, emailError, phoneError, addressError].forEach(err => err.innerText = "");
+
+    // Email + Phone patterns
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let phonePattern = /^[0-9]{10}$/;
+
+    // First name
+    if (firstName.value.trim() === "") {
+      firstNameError.innerText = "First name is required.";
+      firstName.classList.add("invalid");
+      isValid = false;
+    }
+
+    // Last name
+    if (lastName.value.trim() === "") {
+      lastNameError.innerText = "Last name is required.";
+      lastName.classList.add("invalid");
+      isValid = false;
+    }
+
+    // Email
+    if (!emailPattern.test(email.value.trim())) {
+      emailError.innerText = "Enter a valid email (e.g. name@gmail.com).";
+      email.classList.add("invalid");
+      isValid = false;
+    }
+
+    // Phone
+    if (!phonePattern.test(phone.value.trim())) {
+      phoneError.innerText = "Enter a valid 10-digit phone number.";
+      phone.classList.add("invalid");
+      isValid = false;
+    }
+
+    // Address
+    if (address.value.trim() === "") {
+      addressError.innerText = "Address is required.";
+      address.classList.add("invalid");
+      isValid = false;
+    }
+
+    // ✅ If all valid
+    if (isValid) {
+      alert("✅ Payment Successful! Thank you, " + firstName.value + " " + lastName.value + ".");
+      // You can also redirect:
+      // window.location.href = "success.html";
+    }
+  });
+</script>
+
+
+
+  </div>
+
+
+<div class="Modal" id="paymentModal">
+  <div class="modal-content">
+    <div class="tick"></div>
+    <h2>Payment Completed</h2>
+    <p>Thank you for choosing our electrician services<br>
+        We will Contact you soon</p>
+    <button class="back-btn" id="backBtn">Back</button>
+  </div>
+</div>
+
+<script>
+  const payBtn = document.querySelector('.pay-now-btn');
+  const modal = document.getElementById('paymentModal');
+  const backBtn = document.getElementById('backBtn');
+
+  payBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+  });
+
+  backBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Close modal if clicked outside content
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <br><br><br>
+   <footer>
+    <div class="footer-container">
+      
+      <!-- Column 1: Logo + Paragraph -->
+      <div class="footer-logo">
+        <a href="index.html">
+        <img src="image/logo.png" alt="Logo" width="100">
+        </a>
+        <p>Electric dreams</p>
+        <p>
+        Voltaic Electrical provides expert residential,
+        commercial, and emergency electrical
+        services across Perth.
+        </p>
+          <div class="footer-social">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Google"><i class="fab fa-google"></i></a>
+          </div>
+ 
+      </div>
+
+      <!-- Column 2: Services -->
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Lighting</a></li>
+          <li><a href="#">Private Power Poles</a></li>
+          <li><a href="#">Smoke Alarms</a></li>
+          <li><a href="#">EV Chargers</a></li>
+          <li><a href="#">Air Conditioning</a></li>
+          <li><a href="#">Thermographic</a></li>
+          <li><a href="#">View All</a></li>
+        
+        </ul>
+      </div>
+
+      <!-- Column 3: Company -->
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service Areas</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Resources</a></li>
+           <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Get in Touch -->
+  <div class="footer-social">
+        <h3>Get in Touch</h3>
+       <p>
+        <img src="image/location-removebg-preview (1).png" alt="locatiton" width="30">Location, Chennai<br>
+
+      </p>
+      <p><img src="image/telephone-removebg-preview (1).png" alt="telephone" width="30">(+91)1234567890</p>
+      <p><img src="image/envelope-removebg-preview (1).png" alt="envelope" width="30">Support@electricdreams.com</p><br>
+      </div>
+
+    </div>
+
+    </div>
+
+
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

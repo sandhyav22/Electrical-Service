@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="style.css"/>
+     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+</head>
+<body>
+<header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+      <img src="image/Logo1.png" alt="Logo">
+</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="header-buttons">
+      <a href="tel:+911234567890" class="call-btn"> Call: (+91)12345676890</a>
+      <a href="#book" class="book-btn">Book Now</a>
+    </div>
+  </header>
+
+<nav class="navbar">
+    <!-- Nav Links -->
+    <div class="nav-links">
+              <div class="search-bar">
+        <i>🔍</i>
+        <input type="text" placeholder="Search electricians...">
+      </div>
+      <a href="index.html">Home</a>
+
+      <!-- Services dropdown -->
+      <div class="dropdown">
+        <a href="service.html">Services ▾</a>
+        <div class="dropdown-content">
+          <div class="dropdown-columns">
+            
+            <!-- Column 1: Commercial -->
+            <div class="dropdown-column">
+              <h3><a href="service.html">Commercial Services</a></h3>
+              <a href="#">Commercial Lighting Installation</a>
+              <a href="#">Commercial Electrician</a>
+              <a href="#">Commercial Lighting</a>
+              <a href="#">Commercial Switchboard</a>
+              <a href="#">Electrical Testing & Tagging</a>
+              <a href="#">Electrical Maintenance</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Emergency & Outdoor Security Lighting</a>
+            </div>
+
+            <!-- Column 2: Residential -->
+            <div class="dropdown-column">
+              <h3><a href="rservice.html">Residential Services</a></h3>
+              <a href="#">Air Conditioner Installation</a>
+              <a href="#">Appliance Installation</a>
+              <a href="#">CCTV & Alarm Installation</a>
+              <a href="#">Digital Antenna & TV Installation</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Energy Assessment & Management</a>
+              <a href="#">Smart Home Installation</a>
+              <a href="#">Lighting, Fans and PowerPoints</a>
+              <a href="#">Smoke Alarm Installation</a>
+              <a href="#">Switchboard Health Check</a>
+            </div>
+
+            <!-- Column 3: Why Choose Us -->
+            <div class="dropdown-column">
+              <h3>Why Choose Us?</h3>
+              <p style="font-size:14px; line-height:1.5;">
+                Trusted since 2015, we provide high-quality workmanship, competitive 
+                pricing, and outstanding customer service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <a href="emergency.html">Emergency Electrician</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="area.html">Areas We Service</a>
+      <a href="account.html">Account</a>
+       <a href="#" id="cartLink" style="font-size: 18px;">Cart <sup>1</sup></a>
+      
+    </div>
+  </nav>
+  <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      
+      <h2>Cart</h2>
+      <p><strong>Bulb/tubelight holder installation</strong></p>
+      
+      <div class="quantity-control">
+        <span>Add</span>
+        <button id="decreaseBtn">−</button>
+        <span id="quantity">1</span>
+        <button id="increaseBtn">+</button>
+      </div>
+
+      <p>Amount: ₹<span id="amount">109</span></p>
+      <div class="highlight-bar">
+        Add ₹<span id="more">91</span> more to save on visitation fees
+      </div>
+
+      <button class="book-now"onclick="window.location.href='checkout.html'">Book now</button>
+
+      <div class="offer-section">
+        <strong><img src="image/offerimage.png" alt="image" width="50"> Get visitation fees offer</strong>
+        <p>On orders above ₹200</p>
+        <a href="#">View more offers</a>
+      </div>
+
+      <div class="uc-promise">
+        <h3>UC promise</h3>
+        <ul>
+          <li>✔ Verified professionals</li>
+          <li>✔ Hassle free booking</li>
+          <li>✔ Transparent pricing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<script>
+  // Get elements
+const cartLink = document.getElementById("cartLink");
+const cartModal = document.getElementById("cartModal");
+const closeModalBtn = document.getElementById("closeModal");
+const quantitySpan = document.getElementById("quantity");
+const amountSpan = document.getElementById("amount");
+const moreSpan = document.getElementById("more");
+const increaseBtn = document.getElementById("increaseBtn");
+const decreaseBtn = document.getElementById("decreaseBtn");
+
+let quantity = 1;
+const pricePerItem = 109;
+
+// Open modal
+cartLink.addEventListener("click", function (event) {
+  event.preventDefault(); // prevent link default behavior
+  cartModal.style.display = "flex";
+});
+
+// Close modal
+closeModalBtn.addEventListener("click", function () {
+  cartModal.style.display = "none";
+});
+
+// Update price and amount
+function updatePrice() {
+  quantitySpan.textContent = quantity;
+  const total = quantity * pricePerItem;
+  amountSpan.textContent = total;
+  const more = 200 - total;
+  moreSpan.textContent = more > 0 ? more : 0;
+}
+
+// Increase quantity
+increaseBtn.addEventListener("click", function () {
+  quantity++;
+  updatePrice();
+});
+
+// Decrease quantity
+decreaseBtn.addEventListener("click", function () {
+  if (quantity > 1) {
+    quantity--;
+    updatePrice();
+  }
+});
+</script>
+
+<h1 style="color: #F65616;text-align: left;">About Electric Dreams</h1>
+<p style="font-weight: bold;font-size: 22px;text-align: left;">We are here to provide tailored solutions that<br>
+meet your unique electrical needs.</p>
+
+
+
+ <div class="image-text-section">
+    <div class="image-box">
+      <!-- Replace the src below with your actual image URL or path -->
+      <img src="image/IMG_20250619_175018_245.jpg" alt="Electricians Team">
+    </div>
+    <div class="text-content">
+      <h2>Who we are ?</h2>
+      <p>
+        Electric dreams Group was founded with a passion for powering the community responsibly. We are a team of licensed Master Electricians and certified specialists in solar, air conditioning, and thermal imaging, dedicated to delivering the highest standard of service.
+      </p>
+      <strong>Electrical Contractors License: 12356</strong>
+      <strong>Solar Accreditation Australia: Sg7638297</strong>
+      <strong>Refrigeration License: L109876</strong>
+      <strong>Communication License: T37634</strong>
+      <strong>Cat1 Vibration Analysis</strong>
+      <strong>Cat 1 Infrared Thermal Imaging</strong>
+      <strong>Member of Master Electricians</strong>
+    </div>
+  </div>
+    <div class="image-text-section1">
+    <div class="image-box">
+      <!-- Replace the src below with your actual Base64 image or hosted image -->
+      <img src="image/IMG_20250619_174830_146.jpg" alt="Electricians Team">
+    </div>
+    <div class="text-content">
+      <h2>Our Services</h2>
+      <p>
+        Our comprehensive range of services is designed to address a wide variety of
+        energy needs across residential, commercial, and industrial sectors. From 
+        electrical installations and solar systems to EV charging stations, thermal
+        imaging, and industrial lighting, our goal is to offer solutions that not only meet 
+        immediate requirements but also support long-term sustainability.
+        We work with leading brands like Clipsal, Tesla, and Solar Edge to ensure our
+        cilents receive the best products on the market. Whether you're looking to save
+        on energy costs, reduce environmental impact, or enhance your property's value,
+        we have the expertise and tools to make it happen.
+      </p>
+    
+    </div>
+  </div>
+<div class="image-text-section">
+    <div class="image-box">
+      <!-- Replace the src below with your actual image URL or path -->
+      <img src="image/IMG_20250619_174751_917.jpg" alt="Electricians Team">
+    </div>
+    <div class="text-content">
+      <h2>Our Commitment to You</h2>
+      <p>
+        At electric dreams SOlutions Group, cilent satisfaction isn't just a goal; it's the 
+        foundation of our business. We're committted to transparent communication,
+        exceptional customer service, and craftsmanship that lasts. From the initial
+        consultation to project completion, we keep our clients informed every step of
+        the way, ensuring their questions are answered, timelines are clear, and 
+        expectations are met.
+      </p>
+      <p>
+        Our reputation is built on trust and quality, and we take pride in every project we
+        undertake. We're here to make your transition to efficient, sustainable energy as 
+        smooth and rewarding as possible.
+      </p>
+     
+    </div>
+  </div>
+  <br>
+  <div class="flex-container">
+  <p>Get in Touch with Electric Dreams<br>Electrical Today</p>
+  <button class="call-button">Call(+91)12345676890</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <br><br><br>
+   <footer>
+    <div class="footer-container">
+      
+      <!-- Column 1: Logo + Paragraph -->
+      <div class="footer-logo">
+        <a href="index.html">
+        <img src="image/logo.png" alt="Logo" width="100">
+        </a>
+        <p>Electric dreams</p>
+        <p>
+        Voltaic Electrical provides expert residential,
+        commercial, and emergency electrical
+        services across Perth.
+        </p>
+          <div class="footer-social">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Google"><i class="fab fa-google"></i></a>
+          </div>
+      </div>
+
+      <!-- Column 2: Services -->
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Lighting</a></li>
+          <li><a href="#">Private Power Poles</a></li>
+          <li><a href="#">Smoke Alarms</a></li>
+          <li><a href="#">EV Chargers</a></li>
+          <li><a href="#">Air Conditioning</a></li>
+          <li><a href="#">Thermographic</a></li>
+          <li><a href="#">View All</a></li>
+        
+        </ul>
+      </div>
+
+      <!-- Column 3: Company -->
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service Areas</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Resources</a></li>
+           <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Get in Touch -->
+      <div class="footer-social">
+        <h3>Get in Touch</h3>
+       <p>
+        <img src="image/location-removebg-preview (1).png" alt="locatiton" width="30">Location, Chennai<br>
+
+      </p>
+      <p><img src="image/telephone-removebg-preview (1).png" alt="telephone" width="30">(+91)1234567890</p>
+      <p><img src="image/envelope-removebg-preview (1).png" alt="envelope" width="30">Support@electricdreams.com</p><br>
+      </div>
+
+    </div>
+
+
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

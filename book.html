@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>book</title>
+    <link rel="stylesheet" href="style.css"/>
+     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <style>
+
+   
+    /* Grid for cards */
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .service-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 15px 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  border-color: #111;
+  background-color: rgb(233, 231, 231);
+}
+    .service-info {
+      flex: 1;
+      padding-right: 10px;
+    }
+
+    .service-info h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      text-align: start;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .rating span {
+      margin-left: 5px;
+      text-decoration: underline;
+    }
+
+    .rating .star1  {
+      background-color: #007bff;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 10px;
+    }
+
+    .price-time {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .price-time span {
+      color: #007bff;
+      margin-left: 8px;
+    }
+
+    .details {
+      color: #f65616;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 15px;
+      text-decoration: none;
+    }
+
+    .service-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+    }
+
+    .service-image img {
+      width: 100px;
+      height: auto;
+      border-radius: 5px;
+      margin-left: 300px;
+      margin-top: -100px;
+    }
+
+    .add-btn {
+      background-color: #f65616;
+      color: #fff;
+      border: none;
+    font-weight: bold;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 12px;
+      position: absolute;
+      bottom: 8px;
+      left: 330px;
+      width: 41px;
+    }
+
+    .add-btn:hover {
+      background-color: #d94c12;
+    }
+
+    /* Mobile responsive: 1 card per row */
+    @media(max-width: 700px) {
+      .cards-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+
+
+</head>
+<body>
+<header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <a href="index.html">
+      <img src="image/Logo1.png" alt="Logo">
+</a>
+    </div>
+
+    <!-- Buttons -->
+    <div class="header-buttons">
+      <a href="tel:+911234567890" class="call-btn"> Call: (+91)12345676890</a>
+      <a href="#book" class="book-btn">Book Now</a>
+    </div>
+  </header>
+
+<nav class="navbar">
+    <!-- Nav Links -->
+    <div class="nav-links">
+              <div class="search-bar">
+        <i>🔍</i>
+        <input type="text" placeholder="Search electricians...">
+      </div>
+      <a href="index.html">Home</a>
+
+      <!-- Services dropdown -->
+      <div class="dropdown">
+        <a href="service.html">Services ▾</a>
+        <div class="dropdown-content">
+          <div class="dropdown-columns">
+            
+            <!-- Column 1: Commercial -->
+            <div class="dropdown-column">
+              <h3><a href="service.html">Commercial Services</a></h3>
+              <a href="#">Commercial Lighting Installation</a>
+              <a href="#">Commercial Electrician</a>
+              <a href="#">Commercial Lighting</a>
+              <a href="#">Commercial Switchboard</a>
+              <a href="#">Electrical Testing & Tagging</a>
+              <a href="#">Electrical Maintenance</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Emergency & Outdoor Security Lighting</a>
+            </div>
+
+            <!-- Column 2: Residential -->
+            <div class="dropdown-column">
+              <h3><a href="rservice.html">Residential Services</a></h3>
+              <a href="#">Air Conditioner Installation</a>
+              <a href="#">Appliance Installation</a>
+              <a href="#">CCTV & Alarm Installation</a>
+              <a href="#">Digital Antenna & TV Installation</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Energy Assessment & Management</a>
+              <a href="#">Smart Home Installation</a>
+              <a href="#">Lighting, Fans and PowerPoints</a>
+              <a href="#">Smoke Alarm Installation</a>
+              <a href="#">Switchboard Health Check</a>
+            </div>
+
+            <!-- Column 3: Why Choose Us -->
+            <div class="dropdown-column">
+              <h3>Why Choose Us?</h3>
+              <p style="font-size:14px; line-height:1.5;">
+                Trusted since 2015, we provide high-quality workmanship, competitive 
+                pricing, and outstanding customer service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <a href="emergency.html">Emergency Electrician</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="area.html">Areas We Service</a>
+      <a href="account.html">Account</a>
+       <a href="#" id="cartLink" style="font-size: 18px;">Cart <sup>1</sup></a>
+      
+    </div>
+  </nav>
+  <br><br>
+    <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      
+      <h2>Cart</h2>
+      <p><strong>Bulb/tubelight holder installation</strong></p>
+      
+      <div class="quantity-control">
+        <span>Add</span>
+        <button id="decreaseBtn">−</button>
+        <span id="quantity">1</span>
+        <button id="increaseBtn">+</button>
+      </div>
+
+      <p>Amount: ₹<span id="amount">109</span></p>
+      <div class="highlight-bar">
+        Add ₹<span id="more">91</span> more to save on visitation fees
+      </div>
+
+      <button class="book-now"onclick="window.location.href='checkout.html'">Book now</button>
+
+      <div class="offer-section">
+        <strong><img src="image/offerimage.png" alt="image" width="50"> Get visitation fees offer</strong>
+        <p>On orders above ₹200</p>
+        <a href="#">View more offers</a>
+      </div>
+
+      <div class="uc-promise">
+        <h3>UC promise</h3>
+        <ul>
+          <li>✔ Verified professionals</li>
+          <li>✔ Hassle free booking</li>
+          <li>✔ Transparent pricing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<script>
+  // Get elements
+const cartLink = document.getElementById("cartLink");
+const cartModal = document.getElementById("cartModal");
+const closeModalBtn = document.getElementById("closeModal");
+const quantitySpan = document.getElementById("quantity");
+const amountSpan = document.getElementById("amount");
+const moreSpan = document.getElementById("more");
+const increaseBtn = document.getElementById("increaseBtn");
+const decreaseBtn = document.getElementById("decreaseBtn");
+
+let quantity = 1;
+const pricePerItem = 109;
+
+// Open modal
+cartLink.addEventListener("click", function (event) {
+  event.preventDefault(); // prevent link default behavior
+  cartModal.style.display = "flex";
+});
+
+// Close modal
+closeModalBtn.addEventListener("click", function () {
+  cartModal.style.display = "none";
+});
+
+// Update price and amount
+function updatePrice() {
+  quantitySpan.textContent = quantity;
+  const total = quantity * pricePerItem;
+  amountSpan.textContent = total;
+  const more = 200 - total;
+  moreSpan.textContent = more > 0 ? more : 0;
+}
+
+// Increase quantity
+increaseBtn.addEventListener("click", function () {
+  quantity++;
+  updatePrice();
+});
+
+// Decrease quantity
+decreaseBtn.addEventListener("click", function () {
+  if (quantity > 1) {
+    quantity--;
+    updatePrice();
+  }
+});
+</script>
+
+<div class="flex-box">
+    <p>Lighting Installation</p>
+    <h2>Book Online or Call to Book Your Services</h2>
+</div>
+<h4 style=" margin-left: 70px;">Wall and ceiling Light</h4>
+
+<div class="cards-container">
+  <!-- Card 1 -->
+  <div class="service-card">
+    <div class="service-info">
+      <h3 style="text-align: left;margin-right: 100px;">Bulb/ Tubelight holder installation</h3>
+      <div class="rating">
+        <span class="star1">⭐</span>
+        <span>5.67 (345k reviews)</span>
+      </div>
+      <div class="price-time">
+        ₹109 <span>• 20 mins</span>
+      </div>
+     <a href="detail.html" class="details">View Details</a>
+    </div>
+    <div class="service-image">
+      <img src="image/image (13).png" alt="Bulb Holder">
+      <button class="add-btn">Add</button>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="service-card">
+    <div class="service-info">
+      <h3 style="text-align: left;margin-right: 200px;">Ceiling Fan Installation</h3>
+      <div class="rating">
+        <span class="star1">⭐</span>
+        <span>4.92 (210k reviews)</span>
+      </div>
+      <div class="price-time">
+        ₹299 <span>• 40 mins</span>
+      </div>
+      <a href="detail.html" class="details">View Details</a>
+    </div>
+    <div class="service-image">
+      <img src="image/image (19).png" alt="Ceiling Fan">
+      <button class="add-btn">Add</button>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="service-card">
+    <div class="service-info">
+      <h3 style="text-align: left;margin-right: 200px;">Switchboard Repair</h3>
+      <div class="rating">
+        <span class="star1">⭐</span>
+        <span>4.87 (120k reviews)</span>
+      </div>
+      <div class="price-time">
+        ₹199 <span>• 30 mins</span>
+      </div>
+      <a href="detail.html" class="details">View Details</a>
+    </div>
+    <div class="service-image">
+      <img src="image/image (14).png" alt="Switchboard">
+      <button class="add-btn">Add</button>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="service-card">
+    <div class="service-info">
+      <h3 style="text-align: left;margin-right: 200px;">Inverter Installation</h3>
+      <div class="rating">
+        <span class="star1">⭐</span>
+        <span>4.80 (95k reviews)</span>
+      </div>
+      <div class="price-time">
+        ₹499 <span>• 60 mins</span>
+      </div>
+      <a href="detail.html" class="details">View Details</a>
+    </div>
+    <div class="service-image">
+      <img src="image/image (18).png" alt="Inverter">
+      <button class="add-btn">Add</button>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="service-card">
+    <div class="service-info">
+      <h3 style="text-align: left;margin-right: 250px;">AC Servicing</h3>
+      <div class="rating">
+        <span class="star1">⭐</span>
+        <span>4.75 (180k reviews)</span>
+      </div>
+      <div class="price-time">
+        ₹699 <span>• 70 mins</span>
+      </div>
+      <a href="detail.html" class="details">View Details</a>
+    </div>
+    <div class="service-image">
+      <img src="image/image (15).png" alt="AC">
+      <button class="add-btn">Add</button>
+    </div>
+  </div>
+
+  <!-- Card 6 -->
+  <div class="service-card">
+    <div class="service-info">
+      <h3 style="text-align: left;margin-right: 200px;">Water Heater Repair</h3>
+      <div class="rating">
+        <span class="star1">⭐</span>
+        <span>4.90 (75k reviews)</span>
+      </div>
+      <div class="price-time">
+        ₹399 <span>• 50 mins</span>
+      </div>
+      <a href="detail.html" class="details">View Details</a>
+    </div>
+    <div class="service-image">
+      <img src="image/image (17).png" alt="Water Heater">
+      <button class="add-btn">Add</button>
+    </div>
+  </div>
+
+  <!-- Card 7 -->
+  <div class="service-card">
+    <div class="service-info">
+      <h3 style="text-align: left;margin-right: 250px;">Wiring Work</h3>
+      <div class="rating">
+        <span class="star1">⭐</span>
+        <span>4.85 (60k reviews)</span>
+      </div>
+      <div class="price-time">
+        ₹259 <span>• 35 mins</span>
+      </div>
+    <a href="detail.html" class="details">View Details</a>
+    </div>
+    <div class="service-image">
+      <img src="image/image (16).png" alt="Wiring">
+      <button class="add-btn">Add</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <br><br><br>
+   <footer>
+    <div class="footer-container">
+      
+      <!-- Column 1: Logo + Paragraph -->
+      <div class="footer-logo">
+        <img src="image/logo.png" alt="Logo" width="100">
+        <p>Electric dreams</p>
+        <p>
+        Voltaic Electrical provides expert residential,
+        commercial, and emergency electrical
+        services across Perth.
+        </p>
+          <div class="footer-social">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Google"><i class="fab fa-google"></i></a>
+          </div>
+ 
+      </div>
+
+      <!-- Column 2: Services -->
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Lighting</a></li>
+          <li><a href="#">Private Power Poles</a></li>
+          <li><a href="#">Smoke Alarms</a></li>
+          <li><a href="#">EV Chargers</a></li>
+          <li><a href="#">Air Conditioning</a></li>
+          <li><a href="#">Thermographic</a></li>
+          <li><a href="#">View All</a></li>
+        
+        </ul>
+      </div>
+
+      <!-- Column 3: Company -->
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service Areas</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Resources</a></li>
+           <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Get in Touch -->
+  <div class="footer-social">
+        <h3>Get in Touch</h3>
+       <p>
+        <img src="image/location-removebg-preview (1).png" alt="locatiton" width="30">Location, Chennai<br>
+
+      </p>
+      <p><img src="image/telephone-removebg-preview (1).png" alt="telephone" width="30">(+91)1234567890</p>
+      <p><img src="image/envelope-removebg-preview (1).png" alt="envelope" width="30">Support@electricdreams.com</p><br>
+      </div>
+
+    </div>
+
+    </div>
+
+
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

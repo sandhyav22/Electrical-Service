@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="style.css"/>
+     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+
+
+</head>
+<body>
+    <header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="image/Logo1.png" alt="Logo">
+
+    </div>
+
+    <!-- Buttons -->
+    <div class="header-buttons">
+      <a href="tel:+911234567890" class="call-btn"> Call: (+91)12345676890</a>
+      <a href="#book" class="book-btn">Book Now</a>
+    </div>
+  </header>
+
+<nav class="navbar">
+    <!-- Nav Links -->
+    <div class="nav-links">
+              <div class="search-bar">
+        <i>🔍</i>
+        <input type="text" placeholder="Search electricians...">
+      </div>
+      <a href="index.html">Home</a>
+
+      <!-- Services dropdown -->
+      <div class="dropdown">
+        <a href="service.html">Services ▾</a>
+        <div class="dropdown-content">
+          <div class="dropdown-columns">
+            
+            <!-- Column 1: Commercial -->
+            <div class="dropdown-column">
+              <h3><a href="service.html">Commercial Services</a></h3>
+              <a href="#">Commercial Lighting Installation</a>
+              <a href="#">Commercial Electrician</a>
+              <a href="#">Commercial Lighting</a>
+              <a href="#">Commercial Switchboard</a>
+              <a href="#">Electrical Testing & Tagging</a>
+              <a href="#">Electrical Maintenance</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Emergency & Outdoor Security Lighting</a>
+            </div>
+
+            <!-- Column 2: Residential -->
+            <div class="dropdown-column">
+              <h3><a href="rservice.html">Residential Services</a></h3>
+              <a href="#">Air Conditioner Installation</a>
+              <a href="#">Appliance Installation</a>
+              <a href="#">CCTV & Alarm Installation</a>
+              <a href="#">Digital Antenna & TV Installation</a>
+              <a href="#">Electrical Safety Inspection</a>
+              <a href="#">Energy Assessment & Management</a>
+              <a href="#">Smart Home Installation</a>
+              <a href="#">Lighting, Fans and PowerPoints</a>
+              <a href="#">Smoke Alarm Installation</a>
+              <a href="#">Switchboard Health Check</a>
+            </div>
+
+            <!-- Column 3: Why Choose Us -->
+            <div class="dropdown-column">
+              <h3>Why Choose Us?</h3>
+              <p style="font-size:14px; line-height:1.5;">
+                Trusted since 2015, we provide high-quality workmanship, competitive 
+                pricing, and outstanding customer service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <a href="emergency.html">Emergency Electrician</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="area.html">Areas We Service</a>
+      <a href="account.html">Account</a>
+       <a href="#" id="cartLink" style="font-size: 18px;">Cart <sup>1</sup></a>
+      
+    </div>
+  </nav>
+    <div id="cartModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      
+      <h2>Cart</h2>
+      <p><strong>Bulb/tubelight holder installation</strong></p>
+      
+      <div class="quantity-control">
+        <span>Add</span>
+        <button id="decreaseBtn">−</button>
+        <span id="quantity">1</span>
+        <button id="increaseBtn">+</button>
+      </div>
+
+      <p>Amount: ₹<span id="amount">109</span></p>
+      <div class="highlight-bar">
+        Add ₹<span id="more">91</span> more to save on visitation fees
+      </div>
+
+      <button class="book-now"onclick="window.location.href='checkout.html'">Book now</button>
+
+      <div class="offer-section">
+        <strong><img src="image/offerimage.png" alt="image" width="50"> Get visitation fees offer</strong>
+        <p>On orders above ₹200</p>
+        <a href="#">View more offers</a>
+      </div>
+
+      <div class="uc-promise">
+        <h3>UC promise</h3>
+        <ul>
+          <li>✔ Verified professionals</li>
+          <li>✔ Hassle free booking</li>
+          <li>✔ Transparent pricing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<script>
+  // Get elements
+const cartLink = document.getElementById("cartLink");
+const cartModal = document.getElementById("cartModal");
+const closeModalBtn = document.getElementById("closeModal");
+const quantitySpan = document.getElementById("quantity");
+const amountSpan = document.getElementById("amount");
+const moreSpan = document.getElementById("more");
+const increaseBtn = document.getElementById("increaseBtn");
+const decreaseBtn = document.getElementById("decreaseBtn");
+
+let quantity = 1;
+const pricePerItem = 109;
+
+// Open modal
+cartLink.addEventListener("click", function (event) {
+  event.preventDefault(); // prevent link default behavior
+  cartModal.style.display = "flex";
+});
+
+// Close modal
+closeModalBtn.addEventListener("click", function () {
+  cartModal.style.display = "none";
+});
+
+// Update price and amount
+function updatePrice() {
+  quantitySpan.textContent = quantity;
+  const total = quantity * pricePerItem;
+  amountSpan.textContent = total;
+  const more = 200 - total;
+  moreSpan.textContent = more > 0 ? more : 0;
+}
+
+// Increase quantity
+increaseBtn.addEventListener("click", function () {
+  quantity++;
+  updatePrice();
+});
+
+// Decrease quantity
+decreaseBtn.addEventListener("click", function () {
+  if (quantity > 1) {
+    quantity--;
+    updatePrice();
+  }
+});
+</script>
+ <section class="hero-section">
+    <div class="blob-background">
+      <img src="image/Rectangle 43.png" alt="Electricians" class="team-image" />
+    </div>
+    <div class="text-box">
+      <h2>Your Trusted Experts for All Things Electrical</h2>
+      <p>From residential upgrades to large-scale commercial projects, we deliver expert service, quality workmanship, and reliable results.</p>
+    </div>
+  </section>
+<h3 style="text-align: center;">Our Services</h3>
+  <section class="card-slider">
+  <div class="card-track">
+    <!-- 5 Cards -->
+        <div class="slide-card">
+      <img src="image/IMG_20250617_203029_459.jpg" alt="Card 1">
+      <h3>Energy Efficient Lighting</h3>
+      <p>Energ efficient lightinh solutions for your<br>
+      home or business.</p>
+    </div>
+    <div class="slide-card">
+      <img src="image/IMG_20250617_203117_924.jpg" alt="Card 2">
+      <h3>Fast & Reliable Electrical Help </h3>
+      <p>24/7 emergency electrical repairs to restore<br>
+      power and fix urgent issues.</p>
+    </div>
+    <div class="slide-card">
+      <img src="image/IMG_20250617_203423_152.jpg" alt="Card 3">
+      <h3>Enhance Convenience & Efficiency</h3>
+      <p>Upgrade your home with smart lighting<br>
+      automation and energy-efficient technology.</p>
+    </div>
+    <div class="slide-card">
+      <img src="image/IMG_20250617_204321_690.jpg" alt="Card 4">
+      <h3>Safe & Reliable Power Distribution</h3>
+      <p>Upgrade your switchboard for improved safety,<br>
+      efficiency and capacity.</p>
+    </div>
+    <div class="slide-card">
+      <img src="image/IMG_20250617_204257_452.jpg" alt="Card 5">
+      <h3>Protect Your Home</h3>
+      <p>Ensure your home is safe with properly installed<br>
+      smoke alarms.</p>
+    </div>
+  <div class="slide-card">
+      <img src="image/IMG_20250617_203034_690.jpg" alt="Card 5">
+      <h3>Air Conditioning</h3>
+      <p>Stay cool & comfortable, Professional installation and<br>
+      Servicing for efficient cooling and heating.</p>
+    </div>
+    <!-- Duplicate for infinite scroll -->
+    <div class="slide-card">
+      <img src="image/IMG_20250617_203029_459.jpg" alt="Card 1">
+      <h3>Energy Efficient Lighting</h3>
+      <p>Energ efficient lightinh solutions for your<br>
+      home or business.</p>
+    </div>
+    <div class="slide-card">
+      <img src="image/IMG_20250617_203117_924.jpg" alt="Card 2">
+      <h3>Fast & Reliable Electrical Help </h3>
+      <p>24/7 emergency electrical repairs to restore<br>
+      power and fix urgent issues.</p>
+    </div>
+    <div class="slide-card">
+      <img src="image/IMG_20250617_203423_152.jpg" alt="Card 3">
+      <h3>Enhance Concenience & Efficiency</h3>
+      <p>Upgrade your home with smart lightinh<br>
+      automation and energy-efficient technology.</p>
+    </div>
+    <div class="slide-card">
+      <img src="image/IMG_20250617_204321_690.jpg" alt="Card 4">
+      <h3>Safe & Reliable Power Distribution</h3>
+      <p>Upgrade your switchboard for improved safety,<br>
+      efficiency and capacity.</p>
+    </div>
+    <div class="slide-card">
+      <img src="image/IMG_20250617_204257_452.jpg" alt="Card 5">
+      <h3>Protect Your Home</h3>
+      <p>Ensure your home is safe with properly installed<br>
+      smoke alarms.</p>
+    </div>
+  <div class="slide-card">
+      <img src="image/IMG_20250617_203034_690.jpg" alt="Card 5">
+      <h3>Air Conditioning</h3>
+      <p>Stay cool & comfortable, Professional installation and<br>
+      Servicing for efficient cooling and heating.</p>
+    </div>
+  </div><br><br>
+  <button style="width: 20%;font-weight: bold;margin-left: 43%;" onclick="window.location.href='service.html'">View Services</button>
+</section>
+
+  <h2 style="text-align: center;color: #E25C26;">Why choose us?</h2>
+<section class="two-column-flex">
+  <!-- Left side with 4 images -->
+  <div class="left-images">
+    <img src="image/IMG_20250617_213926_902.jpg" alt="Image 1">
+    <img src="image/IMG_20250617_213858_644.jpg" alt="Image 2">
+    <img src="image/IMG_20250617_213845_502.jpg" alt="Image 3">
+    <img src="image/IMG_20250617_213829_655.jpg" alt="Image 4">
+  </div>
+
+  <!-- Right side content -->
+  <div class="right-content">
+    <p>
+     Our team is fully licensed and accredited, bringing extensive experience and <br>
+     recognised qualifications in electrical, solar, air conditioning, and more.
+    </p>
+
+    <!-- 4 cards -->
+    <div class="card-grid">
+      <div class="Info-card">
+        <div class="icon-number">
+    <img src="image/S1.png" alt="Card 1">
+    <p><strong>50+</strong></p>
+  </div>
+        <h5>Years of Industry Experience</h5>
+        <p>Combining decades of expertise<br>
+        to provide reliable, effective <br>
+      electrical solutions.</p>
+      </div>
+      <div class="Info-card">
+         <div class="icon-number">
+        <img src="image/S2.png" alt="Card 2">
+        <p><strong>5000+</strong></p>
+        </div>
+         <h5>Projects Completed</h5>
+        <p>Reflecting the trust businesses<br>
+        and home owners place in us for<br>
+      ongoing electrical services</p>
+      </div>
+      <div class="Info-card">
+        <div class="icon-number">
+        <img src="image/S3.png" alt="Card 3">
+        <p><strong>98%</strong></p>
+        </div>
+         <h5>First-Time Fix Rate</h5>
+        <p>Proving our efficiency in<br>
+        diagnosing and resolving electrical<br>
+      issues on the first visit.</p>
+      </div>
+      <div class="Info-card">
+        <div class="icon-number">
+        <img src="image/S4.png" alt="Card 4">
+        <p><strong>10M</strong></p>
+        </div>
+         <h5>Client Energy Savings</h5>
+        <p>Estimating the financial impact<br>
+        our solutions have had in <br>
+      reducing energy costs.</p>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+<br>
+
+  <section class="number-cards">
+  <h2>Our Proven Three Step Process</h2>
+
+  <div class="card-row">
+    <!-- Card 1 -->
+    <div class="num-card">
+      <div class="number">1</div>
+      <h3>Consultation & Assessment</h3>
+      <p>We begin by understanding your specific needs<br>
+      and goals. Our experts conduct a thorough<br>
+    assessment to recommend the best electrial<br>
+  solutions tailored to your requirements.</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="num-card">
+      <div class="number">2</div>
+      <h3>Detailed Quote</h3>
+      <p>After assessing your needs, we provide a clear,<br>detailed proposal outlining the recommended<br>
+      approach, estimated timelines, and costs, so<br>
+    you know exactly what to expect.</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="num-card">
+      <div class="number">3</div>
+      <h3>Installation & Support</h3>
+      <p>Our certified team completes your project with<br>
+      precision and efficiency, keeping you informed<br>
+    every step of the way. After installation, we<br>
+  provide guidance and ongoing support.</p>
+    </div>
+  </div>
+</section>
+
+<br><br><br>
+<section class="reviews">
+  <h2>What Our Happy Customers Are Saying</h2>
+  <p>Discover why our clients trust us to keep their homes and businesses spotless.</p>
+
+  <div class="review-cards">
+    <!-- Card 1 -->
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>Had my private power pole replaced,<br>they did an exceptional job. <br> Competitive pricing, was well blow the <br>other quotes I got for the job, Great <br>service!</p>
+      <div class="reviewer">
+        <img src="image/image (12).png" alt="Reviewer 1">
+        <span>Stephen Watts<br>Private Power Pole Installation</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐</div>
+      <p>Connor was very diligent in<br>
+      troubleshooting our outdoor low<br>
+    voltage lighting. No problem now, all<br>
+  resolved by Connor, he's a good<br>
+troubleshooter.</p>
+      <div class="reviewer">
+        <img src="image/image (11).png" alt="Reviewer 2">
+        <span>Dean McKenzie<br>Outdoor Lighting</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p>Connor and the team done an<br>
+      exceptional job at our property on a<br>
+    number of electrical tasks including<br>
+  the installation of downlights and <br>
+ceiling fans.</p>
+      <div class="reviewer">
+        <img src="image/image (9).png" alt="Reviewer 3">
+        <span>Daniel Pollifrone<br>Lighting & Ceiling Fans</span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐</div>
+      <p>Had my power short out, called after<br>hours, they came out within the hour<br>
+      and had my power back up in no time!<br>
+    Reasonable pricing and knowledgeable<br>
+  tradesman. Great job mate.</p>
+      <div class="reviewer">
+        <img src="image/image (11).png" alt="Reviewer 4">
+        <span>Dean Orchard<br>Emergency Call-Out</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="image-flex">
+  <h2>Trusted Brands We Work With</h2>
+  <br>
+  <div class="image-row">
+    <img src="image/image (5).png" alt="Project 1">
+    <img src="image/image (6).png" alt="Project 2">
+    <img src="image/image (7).png" alt="Project 3">
+    <img src="image/image (8).png" alt="Project 4">
+  </div>
+</section>
+
+
+
+
+
+    <br><br><br>
+    <div class="flex-container">
+  <p>Get in Touch with Electric Dreams<br>Electrical Today</p>
+  <button class="call-button">Call(+91)12345676890</button>
+</div>
+<br><br>
+<section class="faq-section">
+  <div class="faq-header">
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you need to know about our services.</p>
+  </div>
+
+  <div class="faq-container">
+    <!-- FAQ 1 -->
+    <div class="faq-item">
+      <h3>Did youcharge call-out fee?</h3>
+      <p>No! We offer a $0 callout fee During Business Hours, so you only pay for the work we do -- no<br>
+      hidden costs or surprises.</p>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="faq-item">
+      <h3>Do you offer emergency electrical services?</h3>
+      <p>Yes! We provide 24/7 emergency electrical repairs, ensuring you get fast and reliable service<br>
+      when you need it most.</p>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="faq-item">
+      <h3>Do you work with business and commercial properties?</h3>
+      <p>Yes! We provide comprehensive commercial electrical services, including office fit-outs, lighting<br>
+      upgrades, and compliance testing.</p>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="faq-item">
+      <h3>Are you licensed and insured?</h3>
+      <p>Yes! Voltaic Electrical is fully licensed and insured, ensuring all work meets Australian safety<br>
+      standards.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+  <br><br><br>
+   <footer>
+    <div class="footer-container">
+      
+      <!-- Column 1: Logo + Paragraph -->
+      <div class="footer-logo">
+        <img src="image/logo.png" alt="Logo" width="100">
+        <p>Electric dreams</p>
+        <p>
+        Voltaic Electrical provides expert residential,
+        commercial, and emergency electrical
+        services across Perth.
+        </p>
+          <div class="footer-social">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Google"><i class="fab fa-google"></i></a>
+          </div>
+ 
+      </div>
+
+      <!-- Column 2: Services -->
+      <div class="footer-column">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Lighting</a></li>
+          <li><a href="#">Private Power Poles</a></li>
+          <li><a href="#">Smoke Alarms</a></li>
+          <li><a href="#">EV Chargers</a></li>
+          <li><a href="#">Air Conditioning</a></li>
+          <li><a href="#">Thermographic</a></li>
+          <li><a href="#">View All</a></li>
+        
+        </ul>
+      </div>
+
+      <!-- Column 3: Company -->
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Service Areas</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Reviews</a></li>
+          <li><a href="#">Resources</a></li>
+           <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Get in Touch -->
+  <div class="footer-social">
+        <h3>Get in Touch</h3>
+       <p>
+        <img src="image/location-removebg-preview (1).png" alt="locatiton" width="30">Location, Chennai<br>
+
+      </p>
+      <p><img src="image/telephone-removebg-preview (1).png" alt="telephone" width="30">(+91)1234567890</p>
+      <p><img src="image/envelope-removebg-preview (1).png" alt="envelope" width="30">Support@electricdreams.com</p><br>
+      </div>
+
+    </div>
+
+    </div>
+
+
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
