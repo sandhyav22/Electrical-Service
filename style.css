@@ -798,7 +798,7 @@ body {
         text-align: left;
       }
     }
-.text-box{
+.text-box1{
   max-width: 1200px;
   margin: 2rem auto;
   padding: 1.6rem 1.8rem;
@@ -810,7 +810,7 @@ body {
 }
 
 /* Heading */
-.text-box h2{
+.text-box1 h2{
   margin: 0 0 0.6rem 0;   /* space below heading */
   font-size: 1.6rem;
   color: white;
@@ -819,7 +819,7 @@ body {
 }
 
 /* Paragraph immediately below heading */
-.text-box p{
+.text-box1 p{
   margin: 0 0 1rem 0;     /* space below paragraph */
   font-size: 1rem;
   color: white;
@@ -827,12 +827,12 @@ body {
 }
 
 /* List */
-.text-box ul{
+.text-box1 ul{
   margin: 0;
   padding-left: 1.2rem;
 }
 
-.text-box li{
+.text-box1 li{
   margin-bottom: 1rem;
   font-size: 0.98rem;
   color: white;
